@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: staging
+    database: analytics
+    schema: staging
+    tables:
+      - name: stg_currencies
+        description: "Staging table containing currency details fetched from CurrencyBeacon API."
+      - name: stg_exchange_rates
+        description: "Staging table with exchange rate data from the CurrencyBeacon API."
+
+  - name: dwh
+    database: analytics
+    schema: dwh
+    tables:
+      - name: currencies
+        description: "Currency table containing DWH IDs, codes, and metadata. Created as a source to avoid the looping in the models."
+      - name: exchange_rates
+        description: "Exchange rate table containing DWH IDs, codes, and metadata. Created as a source to avoid the looping in the models."
