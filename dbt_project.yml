@@ -4,7 +4,7 @@ version: 1.0.0
 
 config-version: 2
 
-profile: default  # The profile you are using for connections
+profile: default
 
 target-path: "target"  # Directory for compiled files
 clean-targets:
@@ -12,7 +12,9 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  currency_exchange:  # This must match the project `name`
+  currency_exchange:  
     dwh:
       database: analytics
-      materialized: incremental
+      materialized: incremental 
+    exchange_rate_trends:  
+      +materialized: view  
