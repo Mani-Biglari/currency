@@ -19,7 +19,7 @@ existing_data AS (
         currency_symbol,
         currency_id,
         timestamp
-    FROM {{ source('dwh', 'currencies') }} -- Match the table structure
+    FROM {{ source('dwh', 'currencies') }}
 ),
 final AS (
     SELECT

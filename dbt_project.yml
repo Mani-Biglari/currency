@@ -1,4 +1,4 @@
-name: currency_exchange  # Name of your project
+name: currency_exchange
 
 version: 1.0.0
 
@@ -16,5 +16,5 @@ models:
     dwh:
       database: analytics
       materialized: incremental 
-    exchange_rate_trends:  
+    avg_exchange_rate_trends_vw:  
       +materialized: view  

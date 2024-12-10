@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: currencies
+    description: "Table containing unique currencies and their metadata."
+    columns:
+      - name: currency_id
+        description: "Unique identifier for each currency."
+        tests:
+          - not_null
+          - unique
+      - name: currency_code
+        description: "Three-letter ISO currency code."
+        tests:
+          - not_null
+          - unique
+      - name: currency_name
+        description: "Name of the currency."
+        tests:
+          - not_null
+      - name: currency_symbol
+        description: "Symbol of the currency (e.g., $, €, ¥)."
+      - name: timestamp
+        description: "Timestamp of the last update."
+        tests:
+          - not_null
+
+  - name: exchange_rates
+    description: "Table containing exchange rates between currency pairs over time."
+    columns:
+      - name: rate_id
+        description: "Unique identifier for each exchange rate record."
+        tests:
+          - not_null
+          - unique
+      - name: base_currency
+        description: "The base currency for the exchange rate."
+        tests:
+          - not_null
+      - name: target_currency
+        description: "The target currency for the exchange rate."
+        tests:
+          - not_null
+      - name: exchange_rate
+        description: "The exchange rate value between base and target currencies."
+        tests:
+          - not_null
+      - name: timestamp
+        description: "Timestamp when the exchange rate was recorded."
+        tests:
+          - not_null
